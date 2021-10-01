@@ -6,7 +6,7 @@ const params = "?broadcaster_id=145618882&first=100"
 const clipsArray = []
 let hasPlayed = []
 
-document.getElementById("videoClip").addEventListener("ended", handleNext)
+document.getElementById("videoClip").addEventListener("ended", handleNext, false)
 
 function handleNext(e) {
 	if (!e) {
@@ -54,13 +54,8 @@ const filterClips = (arr) => {
 	}
 }
 
-async function playClip() {
+async function nextClip() {
 	const clips = await getClips()
-	console.log(clipsArray)
-	console.log(clipsArray.length)
-}
-
-function nextClip() {
 	const clipIndex = Math.floor(Math.random() * clipsArray.length)
 	const playCheck = hasPlayed.includes(clipIndex)	
 	if (hasPlayed.length >= clipsArray.length) {
@@ -74,6 +69,7 @@ function nextClip() {
 		function playClip() {
 			document.getElementById("videoClip").setAttribute("src", clipToPlay)
 			console.log(clipToPlay)
+			hasPlayed.push(clipToPlay)
 		}
 	}
 }
