@@ -74,8 +74,7 @@ function nextClip() {
 		clipToPlay = clipsArray[clipIndex]
 		playClip()
 		function playClip() {
-			document.getElementById("videoClip").setAttribute("src", clipToPlay)
-			document.getElementById("videoClip").play()
+			document.getElementById("videoClip").setAttribute("src", clipToPlay)			
 		}
 	}
 }
