@@ -1,4 +1,4 @@
-import fetch from "node-fetch"
+//import fetch from "node-fetch"
 const url = "https://api.twitch.tv/helix/clips"
 const clientId = "bsgy1j7hexbbfj7itrd1w10f5bn3r0"
 const clientSecret = "lgipg4o8pu754vdyt5g7pbcuhoa9vr"
