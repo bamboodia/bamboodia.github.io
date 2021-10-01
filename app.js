@@ -76,6 +76,7 @@ function nextClip() {
 		playClip()
 		function playClip() {
 			document.getElementById("videoClip").setAttribute("src", clipToPlay)
+			document.getElementById("videoClip").play()
 		}
 	}
 }
