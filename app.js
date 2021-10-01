@@ -72,7 +72,6 @@ function nextClip() {
 		nextClip()
 	} else {
 		clipToPlay = clipsArray[clipIndex]
-		console.log(mp4Link)
 		playClip()
 		function playClip() {
 			document.getElementById("videoClip").setAttribute("src", clipToPlay)
