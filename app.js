@@ -1,4 +1,3 @@
-
 const url = "https://api.twitch.tv/helix/clips"
 const clientId = "bsgy1j7hexbbfj7itrd1w10f5bn3r0"
 const clientSecret = "lgipg4o8pu754vdyt5g7pbcuhoa9vr"
@@ -62,19 +61,20 @@ async function playClip() {
 }
 
 function nextClip() {
-	clipIndex = Math.floor(Math.random() * clipsArray.length)
-	n = hasPlayed.includes(clipIndex)
+	const clipIndex = Math.floor(Math.random() * clipsArray.length)
+	const playCheck = hasPlayed.includes(clipIndex)
 	console.log(n)
 	if (hasPlayed.length >= clipsArray.length) {
 		hasPlayed = []
 	}
-	if (n) {
+	if (playCheck) {
 		nextClip()
 	} else {
 		clipToPlay = clipsArray[clipIndex]
 		playClip()
 		function playClip() {
-			document.getElementById("videoClip").setAttribute("src", clipToPlay)			
+			document.getElementById("videoClip").setAttribute("src", clipToPlay)
+			console.log(clipToPlay)
 		}
 	}
 }
