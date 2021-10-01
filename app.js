@@ -6,14 +6,9 @@ const params = "?broadcaster_id=145618882&first=100"
 const clipsArray = []
 let hasPlayed = []
 
-document.getElementById("videoClip").addEventListener("ended", handleNext, false)
-
-function handleNext(e) {
-	if (!e) {
-		e = window.event
-	}
-	makeRandom()
-}
+document.getElementById("videoClip").addEventListener('ended', (event) => {
+	nextClip()
+})
 
 async function getAccessToken() {
 	const response = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`, {
