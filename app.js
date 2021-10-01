@@ -62,8 +62,7 @@ async function playClip() {
 
 function nextClip() {
 	const clipIndex = Math.floor(Math.random() * clipsArray.length)
-	const playCheck = hasPlayed.includes(clipIndex)
-	console.log(n)
+	const playCheck = hasPlayed.includes(clipIndex)	
 	if (hasPlayed.length >= clipsArray.length) {
 		hasPlayed = []
 	}
