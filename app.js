@@ -5,6 +5,16 @@ const clientSecret = "lgipg4o8pu754vdyt5g7pbcuhoa9vr"
 
 const params = "?broadcaster_id=145618882&first=100"
 const clipsArray = []
+const hasPlayed = []
+
+document.getElementById("videoClip").addEventListener("ended", handleNext)
+
+function handleNext(e) {
+	if (!e) {
+		e = window.event
+	}
+	makeRandom()
+}
 
 async function getAccessToken() {
 	const response = await fetch(`https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`, {
@@ -25,7 +35,7 @@ async function getClips() {
 	})
 	const clips = await response.json()
 	//console.log(clips.data);
-	const clipsFiltered = await filterClips(clips.data)
+	const clipsToPush = await filterClips(clips.data)
 }
 
 const filterClips = (arr) => {
@@ -37,20 +47,36 @@ const filterClips = (arr) => {
 	}
 	for (let i = 0; i < filter.length; i++) {
 		if (filter[i].view_count >= 20) {
-			clipsArray.push(filter[i])
+			const clipToPlayJpeg = filter[i].thumbnail_url
+			const clipConcat = clipToPlayJpeg.slice(0, -20)
+			const clipToPlayVid = clipConcat + ".mp4"
+			clipsArray.push(clipToPlayVid)
 		}
 	}
 }
 
-//getClips()
 async function playClip() {
 	const clips = await getClips()
-	//console.log(clipsArray)
+	console.log(clipsArray)
 	console.log(clipsArray.length)
-	const clipIndex = Math.floor(Math.random() * clipsArray.length)
-	const clipToPlay = clipsArray[clipIndex].embed_url;
-	console.log(clipToPlay);
-    //const video = document.getElementById('clip');
-    //video.src = clipToPlay
 }
-playClip()
+
+function nextClip() {
+	clipIndex = Math.floor(Math.random() * clipsArray.length)
+	n = numPlayed.includes(clipIndex)
+	console.log(n)
+	if (hasPlayed.length >= clipsArray.length) {
+		hasPlayed = []
+	}
+	if (n) {
+		nextClip()
+	} else {
+		clipToPlay = clipsArray[clipIndex]
+		console.log(mp4Link)
+		playClip()
+		function playClip() {
+			document.getElementById("videoClip").setAttribute("src", clipToPlay)
+		}
+	}
+}
+nextClip()
