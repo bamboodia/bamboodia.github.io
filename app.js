@@ -34,7 +34,7 @@ async function getClips() {
 const filterClips = (arr) => {
 	const filter = []
 	for (let i = 0; i < arr.length; i++) {
-		if (arr[i].duration <= 15) {
+		if (arr[i].duration <= 20) {
 			filter.push(arr[i])
 		}
 	}
@@ -49,10 +49,9 @@ const filterClips = (arr) => {
 }
 
 async function nextClip() {
-	const clips = await getClips()
 	const clipIndex = Math.floor(Math.random() * clipsArray.length)
 	const playCheck = hasPlayed.includes(clipsArray[clipIndex])
-	console.log(playCheck)
+	console.log(`has played before? ${playCheck}`)
 	if (hasPlayed.length >= clipsArray.length) {
 		hasPlayed = []
 	}
@@ -60,14 +59,12 @@ async function nextClip() {
 		nextClip()
 	} else {
 		clipToPlay = clipsArray[clipIndex]
-		playClip()
-		function playClip() {
-			document.getElementById("videoClip").setAttribute("src", clipToPlay)
-			console.log(clipsArray.length)
-			console.log(clipToPlay)
-			hasPlayed.push(clipToPlay)
-			console.log(hasPlayed)
-		}
+		document.getElementById("videoClip").setAttribute("src", clipToPlay)
+		console.log(`clips array is ${clipsArray.length} items`)
+		console.log(`clip ${clipToPlay} will play`)
+		hasPlayed.push(clipToPlay)
+		console.log(`hasplayed is ${hasPlayed.length} items`)		
 	}
 }
+getClips()
 nextClip()
