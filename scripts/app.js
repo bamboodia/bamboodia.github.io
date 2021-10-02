@@ -30,7 +30,7 @@ async function getClips() {
 	})
 	const clips = await response.json()
 	const clipsToPush = await filterClips(clips.data)
-	console.log(clips.headers)
+	console.log(response.headers)
 }
 
 const filterClips = (arr) => {
