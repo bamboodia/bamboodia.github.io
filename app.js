@@ -28,7 +28,6 @@ async function getClips() {
 		},
 	})
 	const clips = await response.json()
-	//console.log(clips.data);
 	const clipsToPush = await filterClips(clips.data)
 }
 
@@ -65,7 +64,8 @@ async function nextClip() {
 			document.getElementById("videoClip").setAttribute("src", clipToPlay)
 			console.log(clipToPlay)
 			hasPlayed.push(clipToPlay)
+			console.log(hasPlayed)
 		}
-	}
+	}	
 }
 nextClip()
