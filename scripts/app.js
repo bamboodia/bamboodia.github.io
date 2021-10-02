@@ -67,6 +67,9 @@ async function nextClip() {
 	if (hasPlayed.length >= clipsArray.length) {
 		hasPlayed = []
 	}
+	if (clipsArray[clipIndex] === 'https://clips-media-assets2.twitch.tv/34338152432-offset-8394.mp4') {
+		nextClip()
+	}
 	if (playCheck) {
 		nextClip()
 	} else {
