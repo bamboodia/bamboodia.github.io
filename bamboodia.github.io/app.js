@@ -63,6 +63,7 @@ async function nextClip() {
 		playClip()
 		function playClip() {
 			document.getElementById("videoClip").setAttribute("src", clipToPlay)
+			console.log(clipsArray.length)
 			console.log(clipToPlay)
 			hasPlayed.push(clipToPlay)
 			console.log(hasPlayed)
