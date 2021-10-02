@@ -30,8 +30,7 @@ async function getClips() {
 	})
 	const clips = await response.json()
 	const clipsToPush = await filterClips(clips.data)
-	console.log(clips.Ratelimit-Limit)
-	console.log(clips.Ratelimit-Remaining)
+	console.log(clips.headers)
 }
 
 const filterClips = (arr) => {
