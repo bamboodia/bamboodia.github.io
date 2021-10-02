@@ -35,12 +35,12 @@ async function getClips() {
 const filterClips = (arr) => {
 	const filter = []
 	for (let i = 0; i < arr.length; i++) {
-		if (arr[i].duration <= 20) {
+		if (arr[i].duration >= 12) {
 			filter.push(arr[i])
 		}
 	}
 	for (let i = 0; i < filter.length; i++) {
-		if (filter[i].view_count >= 20) {
+		if (filter[i].view_count >= 15) {
 			const clipToPlayJpeg = filter[i].thumbnail_url
 			const clipConcat = clipToPlayJpeg.slice(0, -20)
 			const clipToPlayVid = clipConcat + ".mp4"
