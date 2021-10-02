@@ -1,6 +1,8 @@
+require('dotenv').config()
+
 const url = "https://api.twitch.tv/helix/clips"
-const clientId = "bsgy1j7hexbbfj7itrd1w10f5bn3r0"
-const clientSecret = "lgipg4o8pu754vdyt5g7pbcuhoa9vr"
+const clientId = process.env.CLIENT_ID
+const clientSecret = process.env.CLIENT_SECRET
 
 const params = "?broadcaster_id=145618882&first=100"
 const clipsArray = []
@@ -49,6 +51,7 @@ const filterClips = (arr) => {
 }
 
 async function nextClip() {
+	const clips = await getClips()
 	const clipIndex = Math.floor(Math.random() * clipsArray.length)
 	const playCheck = hasPlayed.includes(clipsArray[clipIndex])
 	console.log(`has played before? ${playCheck}`)
@@ -66,8 +69,4 @@ async function nextClip() {
 		console.log(`hasplayed is ${hasPlayed.length} items`)		
 	}
 }
-async function updateClips() {
-	const clips = await getClips()
-}
-updateClips()
 nextClip()
