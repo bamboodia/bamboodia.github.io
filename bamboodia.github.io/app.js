@@ -34,7 +34,7 @@ async function getClips() {
 const filterClips = (arr) => {
 	const filter = []
 	for (let i = 0; i < arr.length; i++) {
-		if (arr[i].duration >= 20) {
+		if (arr[i].duration <= 15) {
 			filter.push(arr[i])
 		}
 	}
