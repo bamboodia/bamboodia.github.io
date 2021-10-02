@@ -1,8 +1,6 @@
-require('dotenv').config()
-
 const url = "https://api.twitch.tv/helix/clips"
-const clientId = process.env.CLIENT_ID
-const clientSecret = process.env.CLIENT_SECRET
+const clientId = 'bsgy1j7hexbbfj7itrd1w10f5bn3r0'
+const clientSecret = 'lgipg4o8pu754vdyt5g7pbcuhoa9vr'
 
 const params = "?broadcaster_id=145618882&first=100"
 const clipsArray = []
