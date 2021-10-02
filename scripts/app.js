@@ -3,7 +3,7 @@ const clientId = 'bsgy1j7hexbbfj7itrd1w10f5bn3r0'
 const clientSecret = 'lgipg4o8pu754vdyt5g7pbcuhoa9vr'
 
 const params = "?broadcaster_id=145618882&first=100"
-const clipsArray = []
+let clipsArray = []
 let hasPlayed = []
 
 document.getElementById("videoClip").addEventListener("ended", (event) => {
@@ -19,6 +19,7 @@ async function getAccessToken() {
 }
 
 async function getClips() {
+	clipsArray = []
 	const token = await getAccessToken()
 	const response = await fetch(`${url}${params}`, {
 		method: "GET",
