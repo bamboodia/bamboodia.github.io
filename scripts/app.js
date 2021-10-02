@@ -30,7 +30,16 @@ async function getClips() {
 	})
 	const clips = await response.json()
 	const clipsToPush = await filterClips(clips.data)
-	console.log(clips.pagination.cursor)	
+	const page = clips.pagination.cursor
+	const responseTwo = await fetch(`${url}${params}&after=${page}`, {
+		method: "GET",
+		headers: {
+			"Client-ID": clientId,
+			Authorization: `Bearer ${token}`
+		},
+	})
+	const clipsTwo = await responseTwo.json()
+	const clipsToPushTwo = await filterClips(clipsTwo.data)	
 }
 
 const filterClips = (arr) => {
