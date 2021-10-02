@@ -66,5 +66,8 @@ async function nextClip() {
 		console.log(`hasplayed is ${hasPlayed.length} items`)		
 	}
 }
-getClips()
+async function updateClips() {
+	const clips = await getClips()
+}
+updateClips()
 nextClip()
