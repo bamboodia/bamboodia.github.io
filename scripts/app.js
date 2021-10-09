@@ -6,7 +6,7 @@ const params = "?broadcaster_id=145618882&first=100"
 let clipsArray = []
 let hasPlayed = []
 
-document.getElementById("videoClip").volume = 0.1;
+document.getElementById("videoClip").volume = 0.3;
 
 document.getElementById("videoClip").addEventListener("ended", (event) => {
 	nextClip()
