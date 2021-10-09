@@ -5,6 +5,9 @@ const clientSecret = 'lgipg4o8pu754vdyt5g7pbcuhoa9vr'
 const params = "?broadcaster_id=145618882&first=100"
 let clipsArray = []
 let hasPlayed = []
+const vid = document.getElementById("videoClip");
+vid.volume = 0.5;
+
 
 document.getElementById("videoClip").addEventListener("ended", (event) => {
 	nextClip()
