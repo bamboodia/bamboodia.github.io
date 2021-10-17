@@ -2,6 +2,7 @@ body,
 html,
 #root {
   height: 100%;
+  scrollbar-width: none;
 }
 
 html {
@@ -43,7 +44,9 @@ h2 {
   justify-content: space-between;
   width: 100%;
 }
-
+.material-icons {
+  vertical-align: middle !important;  
+}
 @media only screen and (max-width: 1020px) {
   .App-playlist {
     align-items: center;
