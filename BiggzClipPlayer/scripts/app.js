@@ -12,7 +12,8 @@ document.getElementById("videoClip").volume = 0.3;
 document.getElementById("videoClip").addEventListener("ended", (event) => {
 	nextClip();
 });
-
+console.log(today);
+console.log(fromToday);
 async function getAccessToken() {
 	const response = await fetch(
 		`https://id.twitch.tv/oauth2/token?client_id=${clientId}&client_secret=${clientSecret}&grant_type=client_credentials`,
