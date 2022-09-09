@@ -58,7 +58,7 @@ const filterClips = (arr) => {
 		}
 	}
 	for (let i = 0; i < filter.length; i++) {
-		if (filter[i].view_count >= 15) {
+		if (filter[i].view_count >= 2) {
 			const clipToPlayJpeg = filter[i].thumbnail_url;
 			const clipConcat = clipToPlayJpeg.slice(0, -20);
 			const clipToPlayVid = clipConcat + ".mp4";
