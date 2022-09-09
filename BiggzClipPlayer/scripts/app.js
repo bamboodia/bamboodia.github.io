@@ -3,7 +3,7 @@ const clientId = "bsgy1j7hexbbfj7itrd1w10f5bn3r0";
 const clientSecret = "lgipg4o8pu754vdyt5g7pbcuhoa9vr";
 const today = moment().format();
 const fromToday = moment().subtract(10, "days").format();
-const params = `?broadcaster_id=145618882&first=100&started_at=${fromToday}&ended_at=${today}`;
+const params = `?broadcaster_id=145618882&started_at=${fromToday}&ended_at=${today}&first=20`;
 let clipsArray = [];
 let hasPlayed = [];
 
